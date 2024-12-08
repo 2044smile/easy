@@ -13,13 +13,13 @@ def 한일배관():
     }
     params = {
         "query": "한일배관",
-        "display": "Y"
+        "display": 100
     }
 
     responses = requests.get(url, headers=headers, params=params)
 
     if not responses.status_code == 200:
-        raise ValueError("ERROR: ")
+        raise ValueError(f"ERROR: {responses.status_code()}")
 
     data = responses.json()
     items = data.get('items')
